@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
+import com.khs.fragment.databinding.FragmentReplaceBinding
 import com.khs.fragment.databinding.FragmentTestBinding
 import timber.log.Timber
 import java.lang.ClassCastException
 
 
-class TestFragment : BaseFragment<FragmentTestBinding>() {
+class ReplaceFragment : BaseFragment<FragmentReplaceBinding>() {
 
     private var param1: String? = null
     private var param2: String? = null
@@ -27,7 +28,7 @@ class TestFragment : BaseFragment<FragmentTestBinding>() {
         private const val ARG_PARAM2 = "param2"
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            TestFragment().apply {
+            ReplaceFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
@@ -61,7 +62,7 @@ class TestFragment : BaseFragment<FragmentTestBinding>() {
         savedInstanceState: Bundle?
     ): View? {
         // is called when fragment should create its view object hierarchy, either dynamically or via XML layout inflation.
-        bindView(inflater, container!!, R.layout.fragment_test)
+        bindView(inflater, container!!, R.layout.fragment_replace)
         return mBinding?.root
     }
 
@@ -87,8 +88,8 @@ class TestFragment : BaseFragment<FragmentTestBinding>() {
     override fun onDetach() {
         // is called when the fragment is no longer connected to the Activity
         // get rid of referencees from onAttach() - null them out - to prevent memory leaks
-        super.onDetach()
         Timber.d("onDetach")
+        super.onDetach()
         // clean up!
         this.listener = null
 
