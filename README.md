@@ -17,7 +17,7 @@ Activiy를 변경하지 않아도, 쉽게 View를 변경할 수 있어서 많이
     * commit() 전에 setTransition() 을 통해 animation을 줄 수 있다.
     * commit() 된 transaction은 바로 실행되지 않고, main thread에 schedule 되어 처리된다.
     * commit()은 activity가 state save하기 전에 이루어져야한다. state save 이후에 commit()이 불리면 안된다.
-    * 만약 state save와 관계 없ㄷ이 작동하려면 commitAllowingStateLoss()를 호출해야 한다.
+    * 만약 state save와 관계 없이 작동하려면 commitAllowingStateLoss()를 호출해야 한다.
 #
 ## Implementation
 * MainActivity
